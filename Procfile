@@ -1,1 +1,1 @@
-web: Gods-Great-Bookshelf
+web: gods-great-bookshelf
