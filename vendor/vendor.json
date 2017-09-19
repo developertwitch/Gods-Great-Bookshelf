@@ -1,10 +1,8 @@
 {
-    "package": [
+	"comment": "",
+	"ignore": "test",
+	"package": [
         
-    ],
-    "rootPath": "github.com/developertwitch/gods-great-bookshelf",
-    "heroku": {
-        "install" : [ "./..." ],
-        "goVersion": "go1.9"
-    },
+	],
+	"rootPath": "github.com/developertwitch/gods-great-bookshelf"
 }
