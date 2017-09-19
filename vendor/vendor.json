@@ -1,4 +1,7 @@
-{
+}
+    "package": [
+        
+    ],
     "rootPath": "github.com/developertwitch/gods-great-bookshelf",
     "heroku": {
         "install" : [ "./..." ],
