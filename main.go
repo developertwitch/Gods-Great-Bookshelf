@@ -6,9 +6,9 @@ import (
     "fmt"
 )
 
-var regularHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprint(w, "hello")
-})
+func handler(w http.Response Writer, r *http.Request) {
+    fmt.Fprintf(w, "Hello, world!")
+}
 
 func main() {
   http.HandleFunc("/", regularHandler)
