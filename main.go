@@ -16,5 +16,5 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     http.HandleFUnc("/", handler)
-    httpe.ListenAndServe(":"+os.Getenv("PORT"), nil)
+    http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
