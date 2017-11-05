@@ -12,7 +12,15 @@ import (
 var restrictedRoute jwt.Auth
 
 var restrictedHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-  w.Write([]byte("Welcome to the secret area!"))
+  csrfSecret := w.Header().Get("X-CSRF-Token")
+  claims, err := restrictedRoute.GrabTokenClaims(r)
+  log.Println(claims)
+  
+  if err != nil {
+    http.Error(w, "Internal Server Error", 500)
+  } else {
+    templates.RenderTemplate(w, "restricted", &templates.RestrictedPage{ csrfSecret, claims.CustomClaims["Role"].(string) })
+  }
 })
 
 var regularHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
