@@ -4,6 +4,7 @@ import (
     "log"
     "net/http"
     "os"
+    "text/template"
     "time"
     
     "github.com/adam-hanna/jwt-auth/jwt"
