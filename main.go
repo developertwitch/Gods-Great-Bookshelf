@@ -35,7 +35,7 @@ func main() {
     }
     
     http.HandleFunc("/", regularHandler)
-    http.Handle("/restricted", restrictedHandler)
+    http.Handle("/restricted", restrictedRoute.Handler(restrictedHandler))
 
     
     http.ListenAndServe(":"+os.Getenv("PORT") ,nil)
