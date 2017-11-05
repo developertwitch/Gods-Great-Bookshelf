@@ -6,6 +6,8 @@ import (
     "os"
     "time"
     "fmt"
+    
+    "github.com/adam-hanna/jwt-auth/jwt"
 )
 
 var restrictedRoute jwt.Auth
