@@ -3,7 +3,11 @@ package main
 import (
     "net/http"
     "os"
+    
+    "github.com/adam-hanna/jwt-auth/jwt"
 )
+
+var restrictedRoute jwt.Auth
 
 var restrictedHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
   w.Write([]byte("Welcome to the secret area!"))
