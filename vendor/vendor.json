@@ -1,25 +1,6 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [
-		{
-			"checksumSHA1": "FvgbKIN9MTCG8skmOkqk4DU2O84=",
-			"path": "github.com/adam-hanna/jwt-auth/jwt",
-			"revision": "ac543da2efe0877a3066b63ae9764bc57adb433c",
-			"revisionTime": "2017-07-28T21:19:40Z"
-		},
-		{
-			"checksumSHA1": "ynw+B27Rf8vig7I1LqqukIApSUw=",
-			"path": "github.com/adam-hanna/randomstrings",
-			"revision": "88fd7c52a2c704c5d530718c1be454292a806e2b",
-			"revisionTime": "2016-07-15T00:17:58Z"
-		},
-		{
-			"checksumSHA1": "0sh4FXicINLD/q5WM0qnXLan21g=",
-			"path": "github.com/dgrijalva/jwt-go",
-			"revision": "dbeaa9332f19a944acb5736b4456cfcc02140e29",
-			"revisionTime": "2017-10-19T21:57:19Z"
-		}
-	],
+	"package": [],
 	"rootPath": "gods-great-bookshelf"
 }
