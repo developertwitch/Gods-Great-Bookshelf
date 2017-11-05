@@ -1,8 +1,10 @@
 package main
 
 import (
+    "log"
     "net/http"
     "os"
+    "time"
     
     "github.com/adam-hanna/jwt-auth/jwt"
 )
