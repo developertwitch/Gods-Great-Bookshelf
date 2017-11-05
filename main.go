@@ -6,11 +6,11 @@ import (
     "os"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello, world!")
-}
+var regularHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+  w.Write([]byte("Hello, World!"))
+})
 
 func main() {
-    http.HandleFunc("/", handler)
+    http.HandleFunc("/", regularHandler)
     http.ListenAndServe(":"+os.Getenv("PORT") ,nil)
 }
