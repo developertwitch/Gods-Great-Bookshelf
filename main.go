@@ -40,5 +40,5 @@ func main() {
   http.Handle("/restricted", restrictedRoute.Handler(restrictedHandler))
 
   log.Println("Listening...")
-    http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+    http.ListenAndServe("http://127.0.0.1:"+os.Getenv("PORT"), nil)
 }
