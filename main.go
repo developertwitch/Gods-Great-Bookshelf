@@ -15,6 +15,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-    http.HandleFUnc("/", handler)
+    http.HandleFunc("/", handler)
     http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
