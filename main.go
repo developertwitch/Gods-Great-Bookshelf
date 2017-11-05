@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-    fmt.Println("Your port: "+os.Getenv("POST"))
+    fmt.Println("Your port: "+os.Getenv("PORT"))
 }
