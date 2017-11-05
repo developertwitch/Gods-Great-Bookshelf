@@ -38,6 +38,6 @@ func main() {
   // see login_logout example for how to provide tokens
   http.Handle("/restricted", restrictedRoute.Handler(restrictedHandler))
 
-  log.Println("Listening on localhost:3000")
-  http.ListenAndServe("127.0.0.1:3000", nil)
+  log.Println("Listening...")
+    http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
