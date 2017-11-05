@@ -6,7 +6,7 @@ import (
     "fmt"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func regularHandler(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "Hello, world!")
 }
 
