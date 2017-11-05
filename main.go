@@ -2,9 +2,15 @@ package main
 
 import (
     "fmt"
+    "net/http"
     "os"
 )
 
+func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello, world!")
+}
+
 func main() {
-    fmt.Println("Your port: "+os.Getenv("PORT"))
+    http:.HandleFunc("/", handler)
+    http.ListenAndServe(":"+os.Getenv("PORT") ,nil)
 }
