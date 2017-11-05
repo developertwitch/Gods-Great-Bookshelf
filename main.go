@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-    fmt.Fprintf(os.Getenv("PORT")
+    fmt.Printf(os.Getenv("PORT")
 }
