@@ -1,10 +1,7 @@
 package main
 
-import (
-    "os"
-    "fmt"
-)
+import "fmt"
 
 func main() {
-    fmt.Println(os.Getenv("PORT"))
+    fmt.Println("hello world")
 }
