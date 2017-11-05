@@ -20,14 +20,14 @@ var regularHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Reques
 })
 
 func main() {
-    authErauthErr := jwt.New(&restrictedRoute, jwt.Options{
-    SigningMethodString:   "RS256",
-    PrivateKeyLocation:    "keys/app.rsa",     // `$ openssl genrsa -out app.rsa 2048`
-    PublicKeyLocation:     "keys/app.rsa.pub", // `$ openssl rsa -in app.rsa -pubout > app.rsa.pub`
-    RefreshTokenValidTime: 72 * time.Hour,
-    AuthTokenValidTime:    15 * time.Minute,
-    Debug:                 false,
-    IsDevEnv:              true,
+    authErr := jwt.New(&restrictedRoute, jwt.Options {
+        SigningMethodStrin: "RS256",
+        PrivateKeyLocatioPrivateKeyLocation: "keys/app.rsa",     // `$ openssl genrsa -out app.rsa 2048`
+        PublicKeyLocatioPublicKeyLocation: "keys/app.rsa.pub", // `$ openssl rsa -in app.rsa -pubout > app.rsa.pub`
+        RefreshTokenValidTimRefreshTokenValidTime: 72 * time.Hour,
+        AuthTokenValidTimAuthTokenValidTime: 15 * time.Minute,
+        DebuDebug: false,
+        IsDevEnIsDevEnv: true,
     })
     if authErr != nil {
         log.Println("Error initializing the JWT's!")
