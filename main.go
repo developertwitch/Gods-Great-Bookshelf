@@ -7,6 +7,7 @@ import (
     "time"
     
     "github.com/adam-hanna/jwt-auth/jwt"
+    "./templates"
 )
 
 var restrictedRoute jwt.Auth
@@ -19,7 +20,7 @@ var restrictedHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Req
   if err != nil {
     http.Error(w, "Internal Server Error", 500)
   } else {
-      w.Write([]byte("Secret!"))
+      templates.RenderTemplate(w, "restricted", &templates.RestrictedPage{ csrfSecret, claims.CustomClaims["Role"].(string) })
   }
 })
 
