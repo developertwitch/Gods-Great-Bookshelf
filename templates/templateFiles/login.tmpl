@@ -6,18 +6,19 @@
 	<body>
 		<div id="login">
 			<h1>Login</h1>
-			<form id="login" name="login" onsubmit="return DoSubmit();">
-				<input id="username" class="fullWidth" name="username" type="text" placeholder="username" />
-				<input id="password" class="fullWidth" name="password" type="password" placeholder="password" />
+			<form id="fakeLogin" name="fakeLogin" onsubmit="return DoSubmit();">
+				<input class="fullWidth" name="username" type="text" placeholder="username" />
+				<input class="fullWidth" name="password" type="password" placeholder="password" />
 
 				<input type="Submit" value="Login" />
 			</form>
-			<br><br>
-			<div id="loggedIn" class="fullWidth">
-				<span>Your secret is: </span><span id="secret">Please Login First!</span><button id="refreshSecret">Refresh Secret</button>
-				<br><br>
-				<button id="logout">Log Out</button>
-			</div>
+			<form style="display: none;" id="realLogin" name="realLogin" action="/login" method="POST">
+				<input class="fullWidth" name="username" type="text" placeholder="username" />
+				<input class="fullWidth" name="password" type="password" placeholder="password" />
+			</form>
+			<form id="restricted" name="restricted" action="/restricted" method="POST" style="display: none;">
+				<input id="X-CSRF-Token-input" name="X-CSRF-Token" />
+			</form>
 		</div>
 
 		<style>
@@ -52,22 +53,19 @@
 		</style>
 
 		<script>
-			function DoSubmit() {
+			function DoSubmit(){
+				document.realLogin.username.value = document.fakeLogin.username.value;
+				document.realLogin.password.value = document.fakeLogin.password.value;
+
 				$.ajax({
 					'type': 	'POST',
 					'url': 		'/',
-					'data': 	{
-						'username': $('#username').val(),
-						'password': $('#password').val()
-					},
+					'data': 	$('#realLogin').serializeArray(),
 					success: function(data, textStatus, request) {
-						console.log("Success!", data, textStatus, request);
-
-						window.localStorage.setItem("X-CSRF-Token", request.getResponseHeader("X-CSRF-Token"));
-						window.localStorage.setItem("X-Auth-Token", request.getResponseHeader("X-Auth-Token"));
-						window.localStorage.setItem("X-Refresh-Token", request.getResponseHeader("X-Refresh-Token"));
-
-						$("#secret").html(data.secret);
+						var token = request.getResponseHeader('X-CSRF-Token');
+						console.log("Success! The token is: ", token);
+						$("#X-CSRF-Token-input").val(token);
+						$("#restricted").submit();
 					},
 					error: function (request, textStatus, errorThrown) {
 						console.log("Error!", request.getResponseHeader('X-CSRF-Token'));
@@ -76,62 +74,6 @@
 
 				return false;
 			}
-
-			$("#refreshSecret").on("click", function() {
-				var headers = {
-					"Authorization": "Bearer " + window.localStorage.getItem("X-CSRF-Token"),
-					"X-Auth-Token":    window.localStorage.getItem("X-Auth-Token"),
-					"X-Refresh-Token": window.localStorage.getItem("X-Refresh-Token")
-				};
-				
-				$.ajax({
-					'type': 	 		 'POST',
-					'url': 		 		 '/refreshSecret',
-					'headers': 		 headers,
-					'data': 	 		 JSON.stringify({}),
-      		'dataType':  	 'json',
-      		'contentType': 'application/json',
-					success: function(data, textStatus, request) {
-						console.log("Success!", data, textStatus, request);
-						
-						window.localStorage.setItem("X-CSRF-Token", request.getResponseHeader("X-CSRF-Token"));
-						window.localStorage.setItem("X-Auth-Token", request.getResponseHeader("X-Auth-Token"));
-						window.localStorage.setItem("X-Refresh-Token", request.getResponseHeader("X-Refresh-Token"));
-
-						$("#secret").html(data.secret);
-					},
-					error: function (request, textStatus, errorThrown) {
-						console.log("Error!", request, textStatus, errorThrown);
-					}
-				});
-			});
-
-			$("#logout").on("click", function() {
-				var headers = {
-					"Authorization": "Bearer " + window.localStorage.getItem("X-CSRF-Token"),
-					"X-Auth-Token":    window.localStorage.getItem("X-Auth-Token"),
-					"X-Refresh-Token": window.localStorage.getItem("X-Refresh-Token")
-				};
-
-				$.ajax({
-					'type': 	 'POST',
-					'url': 		 '/logout',
-					'headers': headers,
-					'data': 	 {},
-					success: function(data, textStatus, request) {
-						console.log("Success!", data, textStatus, request);
-						
-						window.localStorage.setItem("X-CSRF-Token", "");
-						window.localStorage.setItem("X-Auth-Token", "");
-						window.localStorage.setItem("X-Refresh-Token", "");
-
-						$("#secret").html("Please login!");
-					},
-					error: function (request, textStatus, errorThrown) {
-						console.log("Error!", request, textStatus, errorThrown);
-					}
-				});
-			});
 		</script>
 	</body>
 </html>
