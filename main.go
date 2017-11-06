@@ -24,7 +24,7 @@ var restrictedHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Req
 })
 
 var regularHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-  w.Write([]byte("Hello, World!"))
+    
 })
 
 func main() {
