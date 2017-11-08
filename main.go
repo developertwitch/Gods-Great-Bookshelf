@@ -7,7 +7,6 @@ import (
     "time"
     
     "github.com/adam-hanna/jwt-auth/jwt"
-    "github.com/developertwitch/gods-great-bookshelf/tree/master/templates"
 )
 
 var restrictedRoute jwt.Auth
