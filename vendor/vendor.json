@@ -15,6 +15,12 @@
 			"revisionTime": "2016-07-15T00:17:58Z"
 		},
 		{
+			"checksumSHA1": "byQWXlkFr4zR6ad/5L7lKF2cE7Y=",
+			"path": "github.com/developertwitch/gods-great-bookshelf/templates",
+			"revision": "74c7e2585a64c7a4aab99a50024348ae2186377c",
+			"revisionTime": "2017-11-08T11:30:17Z"
+		},
+		{
 			"checksumSHA1": "0sh4FXicINLD/q5WM0qnXLan21g=",
 			"path": "github.com/dgrijalva/jwt-go",
 			"revision": "dbeaa9332f19a944acb5736b4456cfcc02140e29",
