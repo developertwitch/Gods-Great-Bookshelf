@@ -19,6 +19,12 @@
 			"path": "github.com/dgrijalva/jwt-go",
 			"revision": "dbeaa9332f19a944acb5736b4456cfcc02140e29",
 			"revisionTime": "2017-10-19T21:57:19Z"
+		},
+		{
+			"checksumSHA1": "KWP70975tMbwsoQp2aUR3rMGySw=",
+			"path": "gods-great-bookshelf/templates",
+			"revision": "f359ebacd1ac4eec764eb75409bf3aa1dc2cc695",
+			"revisionTime": "2017-11-08T12:08:28Z"
 		}
 	],
 	"rootPath": "gods-great-bookshelf"
