@@ -15,10 +15,6 @@
 			"revisionTime": "2016-07-15T00:17:58Z"
 		},
 		{
-			"path": "github.com/developertwitch/gods-great-bookshelf/tree/master/templates",
-			"revision": ""
-		},
-		{
 			"checksumSHA1": "0sh4FXicINLD/q5WM0qnXLan21g=",
 			"path": "github.com/dgrijalva/jwt-go",
 			"revision": "dbeaa9332f19a944acb5736b4456cfcc02140e29",
