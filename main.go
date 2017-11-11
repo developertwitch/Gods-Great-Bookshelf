@@ -95,7 +95,7 @@ func main() {
 	http.HandleFunc("/", loginHandler)
 	http.Handle("/restricted", restrictedRoute.Handler(restrictedHandler))
 	http.Handle("/logout", restrictedRoute.Handler(logoutHandler))
-
-	log.Println("Listening...)
+	
+	log.Println("Listening...")
 	http.ListenAndServe(":"+os.Getenv("PORT") ,nil)
 }
