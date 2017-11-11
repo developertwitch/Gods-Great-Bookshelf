@@ -16,7 +16,7 @@ type RestrictedPage struct {
 	Role       string
 }
 
-var templates = template.Must(template.ParseFiles("./templateFiles/login.tmpl"))
+var templates = template.Must(template.ParseFiles("./templates/templateFiles/login.tmpl"))
 
 // RenderTemplate : apply the given template to the responsewriter
 func RenderTemplate(w http.ResponseWriter, tmpl string, p interface{}) {
